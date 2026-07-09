@@ -146,3 +146,4 @@ C:\Users\thang\OneDrive\Desktop\c#\LibraryManagementSystem\MyProject\SmartKitche
 C:\Users\thang\OneDrive\Desktop\c#\LibraryManagementSystem\MyProject\SmartKitchenInventoryAPI\obj\Debug\net8.0\SmartKitchenInventoryAPI.pdb
 C:\Users\thang\OneDrive\Desktop\c#\LibraryManagementSystem\MyProject\SmartKitchenInventoryAPI\obj\Debug\net8.0\SmartKitchenInventoryAPI.genruntimeconfig.cache
 C:\Users\thang\OneDrive\Desktop\c#\LibraryManagementSystem\MyProject\SmartKitchenInventoryAPI\obj\Debug\net8.0\ref\SmartKitchenInventoryAPI.dll
+C:\Users\thang\OneDrive\Desktop\c#\LibraryManagementSystem\MyProject\SmartKitchenInventoryAPI\obj\Debug\net8.0\SmartKitchenInventoryAPI.sourcelink.json
