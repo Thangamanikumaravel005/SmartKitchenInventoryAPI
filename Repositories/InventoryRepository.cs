@@ -14,15 +14,18 @@ namespace SmartKitchenInventoryAPI.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Item>> GetAllAsync()
-        {
-            return await _context.Items.ToListAsync();
-        }
+       public async Task<IEnumerable<Item>> GetAllAsync()
+{
+    return await _context.Items
+        .Where(i => !i.IsDeleted)
+        .ToListAsync();
+}
 
         public async Task<Item?> GetByIdAsync(int id)
-        {
-            return await _context.Items.FindAsync(id);
-        }
+{
+    return await _context.Items
+        .FirstOrDefaultAsync(i => i.Id == id && !i.IsDeleted);
+}
 
         public async Task AddAsync(Item item)
         {
@@ -35,11 +38,15 @@ namespace SmartKitchenInventoryAPI.Repositories
             return Task.CompletedTask;
         }
 
-        public Task DeleteAsync(Item item)
-        {
-            _context.Items.Remove(item);
-            return Task.CompletedTask;
-        }
+        public async Task DeleteAsync(Item item)
+{
+    item.IsDeleted = true;
+    item.DeletedDate = DateTime.Now;
+
+    _context.Items.Update(item);
+
+    await _context.SaveChangesAsync();
+}
 
         public async Task SaveChangesAsync()
         {

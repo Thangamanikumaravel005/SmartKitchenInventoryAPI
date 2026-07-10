@@ -19,17 +19,12 @@ public class InventoryController : ControllerBase
         }
 
         
-        [HttpGet]
-public async Task<IActionResult> GetAllItems()
+     [HttpGet]
+public async Task<IActionResult> GetItems([FromQuery] PaginationParameters pagination)
 {
-    var items = await _inventoryService.GetAllItemsAsync();
+    var items = await _inventoryService.GetPagedItemsAsync(pagination);
 
-    var response = new ApiResponse<IEnumerable<Item>>(
-        true,
-        "Items retrieved successfully.",
-        items);
-
-    return Ok(response);
+    return Ok(items);
 }
 
         
