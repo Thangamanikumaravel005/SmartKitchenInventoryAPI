@@ -35,7 +35,6 @@ namespace SmartKitchenInventoryAPI.Services
 
         public async Task AddItemAsync(Item item)
 {
-    // Check duplicate item
     var items = await _repository.GetAllAsync();
 
     if (items.Any(i => i.Name.Equals(item.Name, StringComparison.OrdinalIgnoreCase)))
@@ -43,17 +42,17 @@ namespace SmartKitchenInventoryAPI.Services
         throw new DuplicateItemException($"Item '{item.Name}' already exists.");
     }
 
-    // Validate item
+    
     if (!_validator.Validate(item, out string errorMessage))
     {
         throw new Exception(errorMessage);
     }
 
-    // Save item
+   
     await _repository.AddAsync(item);
     await _repository.SaveChangesAsync();
 
-    // Check notifications
+    
     string notification = _notificationService.CheckNotifications(item);
 
     Console.WriteLine(notification);

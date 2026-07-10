@@ -19,7 +19,7 @@ namespace SmartKitchenInventoryAPI.Controllers
         [HttpPost("login")]
         public IActionResult Login(LoginRequestDto request)
         {
-            // Hardcoded users (for learning)
+            
             var users = new List<User>
             {
                 new User
