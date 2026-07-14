@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartKitchenInventoryAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca122aa78b7ba0a7bd48a1353872b69bf15cc0fc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed365257c9c1254c364b2cc6e217d2f07f9a85cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartKitchenInventoryAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartKitchenInventoryAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
