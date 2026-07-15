@@ -1,6 +1,6 @@
 using SmartKitchenInventoryAPI.Models;
 
-namespace SmartKitchenInventoryAPI.Validators
+namespace SmartKitchenInventoryAPI.Services
 {
     public class ItemValidator
     {

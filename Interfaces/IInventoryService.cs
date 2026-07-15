@@ -1,5 +1,5 @@
 using System.Linq;
-using SmartKitchenInventoryAPI.Validators;
+using SmartKitchenInventoryAPI.Services;
 using SmartKitchenInventoryAPI.Interfaces;
 using SmartKitchenInventoryAPI.Models;
 using SmartKitchenInventoryAPI.Exceptions;

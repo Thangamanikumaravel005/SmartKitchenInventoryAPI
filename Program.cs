@@ -6,9 +6,9 @@ using SmartKitchenInventoryAPI.Interfaces;
 using SmartKitchenInventoryAPI.Middleware;
 using SmartKitchenInventoryAPI.Repositories;
 using SmartKitchenInventoryAPI.Services;
-using SmartKitchenInventoryAPI.Validators;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,10 +20,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IRepository, InventoryRepository>();
 builder.Services.AddScoped<IInventoryService, InventoryService>();
-builder.Services.AddScoped<ItemValidator>();
+
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<ItemValidator>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
