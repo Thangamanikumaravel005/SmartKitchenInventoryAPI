@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SmartKitchenInventoryAPI.DTOs;
 using SmartKitchenInventoryAPI.Interfaces;
-using SmartKitchenInventoryAPI.Models;
 
 namespace SmartKitchenInventoryAPI.Controllers
 {
@@ -9,54 +8,51 @@ namespace SmartKitchenInventoryAPI.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IJwtService _jwtService;
+        private readonly IAuthService _authService;
 
-        public AuthController(IJwtService jwtService)
+        public AuthController(IAuthService authService)
         {
-            _jwtService = jwtService;
+            _authService = authService;
         }
 
-        [HttpPost("login")]
-        public IActionResult Login(LoginRequestDto request)
+        // Register
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterRequestDto request)
         {
-            
-            var users = new List<User>
-            {
-                new User
-                {
-                    Id = 1,
-                    Username = "admin",
-                    Password = "Admin@123",
-                    Role = "Admin"
-                },
-                new User
-                {
-                    Id = 2,
-                    Username = "employee",
-                    Password = "Employee@123",
-                    Role = "Employee"
-                }
-            };
+            var result = await _authService.RegisterAsync(request);
 
-            var user = users.FirstOrDefault(u =>
-                u.Username == request.Username &&
-                u.Password == request.Password);
-
-            if (user == null)
+            if (result == "Username already exists.")
             {
-                return Unauthorized("Invalid username or password.");
+                return BadRequest(new
+                {
+                    Message = result
+                });
             }
 
-            var token = _jwtService.GenerateToken(user);
-
-            var response = new LoginResponseDto
+            return Ok(new
             {
-                Token = token,
-                Username = user.Username,
-                Role = user.Role
-            };
+                Message = result
+            });
+        }
 
-            return Ok(response);
+        // Login
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequestDto request)
+        {
+            var token = await _authService.LoginAsync(request);
+
+            if (token == null)
+            {
+                return Unauthorized(new
+                {
+                    Message = "Invalid username or password."
+                });
+            }
+
+            return Ok(new
+            {
+                Token = token
+            });
         }
     }
 }
