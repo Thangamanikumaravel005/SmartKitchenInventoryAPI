@@ -8,7 +8,6 @@ using SmartKitchenInventoryAPI.Repositories;
 using SmartKitchenInventoryAPI.Services;
 using System.Text;
 using Microsoft.OpenApi.Models;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
