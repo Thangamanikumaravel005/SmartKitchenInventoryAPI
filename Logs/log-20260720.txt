@@ -925,3 +925,23 @@ VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
 2026-07-20 18:57:12.743 +05:30 [INF] Executed action SmartKitchenInventoryAPI.Controllers.InventoryController.AddItem (SmartKitchenInventoryAPI) in 160.5985ms
 2026-07-20 18:57:12.753 +05:30 [INF] Executed endpoint 'SmartKitchenInventoryAPI.Controllers.InventoryController.AddItem (SmartKitchenInventoryAPI)'
 2026-07-20 18:57:12.767 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5200/api/Inventory - 200 null application/json; charset=utf-8 366.8649ms
+2026-07-20 19:53:20.883 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5200/api/Inventory/paged?PageNumber=1&PageSize=5 - null null
+2026-07-20 19:53:21.080 +05:30 [INF] Executing endpoint 'SmartKitchenInventoryAPI.Controllers.InventoryController.GetPagedItems (SmartKitchenInventoryAPI)'
+2026-07-20 19:53:21.222 +05:30 [INF] Route matched with {action = "GetPagedItems", controller = "Inventory"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPagedItems(SmartKitchenInventoryAPI.Models.PaginationParameters) on controller SmartKitchenInventoryAPI.Controllers.InventoryController (SmartKitchenInventoryAPI).
+2026-07-20 19:53:23.611 +05:30 [INF] Pagination requested. PageNumber: 1, PageSize: 5
+2026-07-20 19:53:23.620 +05:30 [INF] Entered GetPagedItemsAsync
+2026-07-20 19:53:23.625 +05:30 [INF] Entered GetAllItemsAsync
+2026-07-20 19:53:23.637 +05:30 [INF] Cache miss. Loading inventory items from database.
+2026-07-20 19:53:24.352 +05:30 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[Id], [i].[Category], [i].[CreatedDate], [i].[DeletedDate], [i].[ExpiryDate], [i].[IsDeleted], [i].[MinimumQuantity], [i].[ModifiedDate], [i].[Name], [i].[Price], [i].[Quantity], [i].[Unit]
+FROM [Items] AS [i]
+WHERE [i].[IsDeleted] = CAST(0 AS bit)
+2026-07-20 19:53:24.390 +05:30 [INF] Inventory items stored in cache for 5 minutes.
+2026-07-20 19:53:24.406 +05:30 [INF] Returned 5 items.
+2026-07-20 19:53:24.416 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListPartition`1[[Item, SmartKitchenInventoryAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-20 19:53:24.562 +05:30 [INF] Executed action SmartKitchenInventoryAPI.Controllers.InventoryController.GetPagedItems (SmartKitchenInventoryAPI) in 3289.2899ms
+2026-07-20 19:53:24.580 +05:30 [INF] Executed endpoint 'SmartKitchenInventoryAPI.Controllers.InventoryController.GetPagedItems (SmartKitchenInventoryAPI)'
+2026-07-20 19:53:24.592 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5200/api/Inventory/paged?PageNumber=1&PageSize=5 - 200 null application/json; charset=utf-8 3718.5007ms
+2026-07-20 19:53:36.458 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5200/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-07-20 19:53:36.497 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5200/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 38.9144ms
+2026-07-20 19:53:36.517 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5200/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
