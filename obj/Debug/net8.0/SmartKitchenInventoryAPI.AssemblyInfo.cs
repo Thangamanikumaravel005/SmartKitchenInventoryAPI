@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("6eafa691-eb62-4093-ae5d-6f160d1b54ae")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartKitchenInventoryAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74bf0d1cae1b023625bb8737e341b56b92d76418")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1f2e686d531d58dfc6581b8c3e3293ab7063453")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartKitchenInventoryAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartKitchenInventoryAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
